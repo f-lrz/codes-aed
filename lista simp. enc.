@@ -5,7 +5,7 @@
 
 typedef int oitem;
 
-typedef struct noh{
+typedef struct no{
     oitem info;
     struct no *prox;
 }listasimpenc;
@@ -21,5 +21,33 @@ int listasimpenc_vazia(listasimpenc *lista){
     return 0;
 }
 
+listasimpenc *aloca_listasimpenc(){
+    listasimpenc *novono;
+    novono = (listasimpenc*) malloc(sizeof(listasimpenc));
+
+    return novono;
+}
+
+int insere_listasimpenc_no_fim(listasimpenc *l, oitem e){
+    listasimpenc *novono, *atual;
+
+    novono = aloca_listasimpenc();
+
+    if(novono == NULL) return 0;
+
+    novono->info = e;
+    novono->prox = NULL;
+
+    if(listasimpenc_vazia(l)) l = novono;
+
+    else{
+        atual = l;
+        while(atual->prox != NULL) atual = atual->prox;
+        atual->prox = novono;
+    }
+
+    return 1;
+}
 
 #endif
+
