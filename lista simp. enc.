@@ -1,0 +1,25 @@
+#ifndef LISTASIMPENC_H
+#define LISTASIMPENC_H
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef int oitem;
+
+typedef struct noh{
+    oitem info;
+    struct no *prox;
+}listasimpenc;
+
+
+listasimpenc *inicializa_listasimpenc(){
+    return NULL;
+}
+
+int listasimpenc_vazia(listasimpenc *lista){
+    if(lista == NULL) return 1;
+
+    return 0;
+}
+
+
+#endif
