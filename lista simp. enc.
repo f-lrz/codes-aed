@@ -28,7 +28,7 @@ listasimpenc *aloca_listasimpenc(){
     return novono;
 }
 
-int insere_listasimpenc_no_fim(listasimpenc *l, oitem e){
+int insere_listasimpenc_no_fim(listasimpenc **l, oitem e){
     listasimpenc *novono, *atual;
 
     novono = aloca_listasimpenc();
@@ -38,10 +38,10 @@ int insere_listasimpenc_no_fim(listasimpenc *l, oitem e){
     novono->info = e;
     novono->prox = NULL;
 
-    if(listasimpenc_vazia(l)) l = novono;
+    if(listasimpenc_vazia(*l)) *l = novono;
 
     else{
-        atual = l;
+        atual = *l;
         while(atual->prox != NULL) atual = atual->prox;
         atual->prox = novono;
     }
