@@ -1,2 +1,2 @@
-# bibliotecas
+# libs
 Bibliotecas de AED
