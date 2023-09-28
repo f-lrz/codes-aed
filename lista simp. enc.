@@ -11,6 +11,7 @@ typedef struct no{
 }listasimpenc;
 
 
+
 listasimpenc *inicializa_listasimpenc(){
     return NULL;
 }
@@ -47,6 +48,17 @@ int insere_listasimpenc_no_fim(listasimpenc **l, oitem e){
     }
 
     return 1;
+}
+
+void imprime_listasimpenc(listasimpenc *lista){
+    listasimpenc *atual;
+    
+    atual = lista;
+
+    while(atual != NULL){
+        printf("%d\n", atual->info);
+        atual = atual->prox;
+    }
 }
 
 #endif
