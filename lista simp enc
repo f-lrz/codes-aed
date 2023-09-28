@@ -61,5 +61,26 @@ void imprime_listasimpenc(listasimpenc *lista){
     }
 }
 
+int remove_listasimpenc(listasimpenc **lista, oitem e){
+    listasimpenc *atual, *antatual;
+    atual = *lista;
+    antatual = NULL;
+
+    while((atual != NULL) && (atual->info != e)){
+        antatual = atual;
+        atual = atual->prox;
+    }
+
+    if(atual == NULL) return 0;
+
+    if(antatual == NULL) *lista = atual->prox;
+    else antatual->prox = atual->prox;
+
+    free(atual);
+    atual = NULL;
+
+    return 1;
+}
+
 #endif
 
