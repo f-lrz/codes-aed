@@ -29,7 +29,7 @@ listasimpenc *aloca_listasimpenc(){
     return novono;
 }
 
-int insere_listasimpenc_no_fim(listasimpenc **l, oitem e){
+int insere_listasimpenc_no_fim(listasimpenc **lista, oitem e){
     listasimpenc *novono, *atual;
 
     novono = aloca_listasimpenc();
@@ -39,10 +39,10 @@ int insere_listasimpenc_no_fim(listasimpenc **l, oitem e){
     novono->info = e;
     novono->prox = NULL;
 
-    if(listasimpenc_vazia(*l)) *l = novono;
+    if(listasimpenc_vazia(*lista)) *lista = novono;
 
     else{
-        atual = *l;
+        atual = *lista;
         while(atual->prox != NULL) atual = atual->prox;
         atual->prox = novono;
     }
@@ -50,16 +50,6 @@ int insere_listasimpenc_no_fim(listasimpenc **l, oitem e){
     return 1;
 }
 
-void imprime_listasimpenc(listasimpenc *lista){
-    listasimpenc *atual;
-    
-    atual = lista;
-
-    while(atual != NULL){
-        printf("%d\n", atual->info);
-        atual = atual->prox;
-    }
-}
 
 int remove_listasimpenc(listasimpenc **lista, oitem e){
     listasimpenc *atual, *antatual;
@@ -80,6 +70,41 @@ int remove_listasimpenc(listasimpenc **lista, oitem e){
     atual = NULL;
 
     return 1;
+}
+
+void imprime_listasimpenc(listasimpenc *lista){
+    listasimpenc *atual;
+    
+    atual = lista;
+
+    while(atual != NULL){
+        printf("%d\n", atual->info);
+        atual = atual->prox;
+    }
+}
+
+listasimpenc *busca_listasimpenc(listasimpenc *lista, oitem e){
+    listasimpenc *atual;
+    atual = lista;
+
+    while((atual != NULL) && (atual->info != e)) atual = atual->prox;
+
+    if(atual == NULL) return NULL;
+
+    return atual;
+}
+
+int tamanho_listasimpenc(listasimpenc *lista){
+    int cont = 0;
+    listasimpenc *atual;
+    atual = lista;
+
+    while(atual != NULL){
+        cont++; 
+        atual = atual->prox;
+    }
+
+    return cont;
 }
 
 #endif

@@ -23,6 +23,11 @@ int main(){
 
     imprime_listasimpenc(lista);
 
+    int tam = tamanho_listasimpenc(lista);
+
+    printf("\n%d", tam);
+
+    printf("\n");
     printf("\n");
 
     return 0;
