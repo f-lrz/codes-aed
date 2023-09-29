@@ -1,5 +1,7 @@
 #ifndef LISTASIMPENC_H
 #define LISTASIMPENC_H
+#include "PILHA.H"
+#include "FILA.H"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -105,6 +107,20 @@ int tamanho_listasimpenc(listasimpenc *lista){
     }
 
     return cont;
+}
+
+void destroi_listasimpenc(listasimpenc **lista){
+    listasimpenc *atual;
+
+    atual = *lista;
+
+    while(atual != NULL){
+        *lista = atual->prox;
+        free(atual);
+        atual = *lista;
+    }
+
+    *lista = NULL;
 }
 
 #endif

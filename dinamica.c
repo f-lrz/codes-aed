@@ -13,19 +13,20 @@ int main(){
     insere_listasimpenc_no_fim(&lista, 50);
 
     printf("\n");
-
     imprime_listasimpenc(lista);
 
     printf("\n");
-
     remove_listasimpenc(&lista, 30);
     remove_listasimpenc(&lista, 40);
 
-    imprime_listasimpenc(lista);
+    imprime_listasimpenc(lista);;
 
-    int tam = tamanho_listasimpenc(lista);
+    printf("\n%d", tamanho_listasimpenc(lista));
 
-    printf("\n%d", tam);
+    destroi_listasimpenc(&lista);
+
+    printf("\n");
+    printf("\n%d", tamanho_listasimpenc(lista));
 
     printf("\n");
     printf("\n");
