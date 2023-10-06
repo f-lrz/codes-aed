@@ -1,4 +1,6 @@
 #include "listasimpenc.h"
+#include "pilhasimpenc.h"
+#include "filasimpenc.h"
 
 int main(){
 

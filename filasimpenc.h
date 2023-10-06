@@ -5,22 +5,23 @@
 
 typedef int oitem; 
 
-typedef struct no_aux{   
+typedef struct no{   
   oitem info;   
-  struct no_aux *prox;   
+  struct no *prox;   
 } no; 
 
 
 typedef struct{   
   no *ini, *fim; 
-  int tam = 0;  
+  int tam;  
 } fila;
 
 
 fila *inicializa_fila (){
-   fila *fila = (fila*) malloc(sizeof(fila));   
-   fila->ini = fila->fim = NULL;   
-   return fila;
+  fila *fila = (fila*) malloc(sizeof(fila));   
+  fila->ini = fila->fim = NULL;   
+  return fila;
+  fila->tam = 0;
 }  
 
 no *aloca(){
@@ -46,6 +47,9 @@ int insere_fila (fila *fila, oitem e){
   else fila->fim->prox = novo;  
 
   fila->fim = novo;
+
+  fila->tam++;
+
   return 1;   
 }        
 
@@ -61,6 +65,9 @@ int remove_fila (fila *fila, oitem *e){
   else fila->ini = fila->ini->prox;
      
   free(aux);
+
+  fila->tam--;
+
   return 1;   
 }        
 
