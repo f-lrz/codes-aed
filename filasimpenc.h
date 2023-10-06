@@ -14,14 +14,14 @@ typedef struct no{
 typedef struct{   
   no *ini, *fim; 
   int tam;  
-} fila;
+} filasimpenc;
 
 
-fila *inicializa_fila (){
-  fila *fila = (fila*) malloc(sizeof(fila));   
+filasimpenc *inicializa_filasimpenc (){
+  filasimpenc *fila = (filasimpenc*) malloc(sizeof(fila));   
   fila->ini = fila->fim = NULL;   
-  return fila;
   fila->tam = 0;
+  return fila;
 }  
 
 no *aloca(){
@@ -30,19 +30,19 @@ no *aloca(){
 	return pt;
 }
 
-int fila_vazia (fila *fila){   
- if (fila->ini == NULL) return 1;
- return 0;
+int filasimpenc_vazia (filasimpenc *fila){   
+  if (fila->ini == NULL) return 1;
+  return 0;
 }
 
-int insere_fila (fila *fila, oitem e){   
+int insere_filasimpenc (filasimpenc *fila, oitem e){   
   no *novo;   
   novo = aloca();
   if (!novo) return 0;
 
   novo->info = e;  
   novo->prox = NULL;
-  if ( fila_vazia(fila) ) fila->ini = novo;
+  if ( filasimpenc_vazia(fila) ) fila->ini = novo;
      
   else fila->fim->prox = novo;  
 
@@ -53,10 +53,10 @@ int insere_fila (fila *fila, oitem e){
   return 1;   
 }        
 
-int remove_fila (fila *fila, oitem *e){   
+int remove_filasimpenc (filasimpenc *fila, oitem *e){   
   no *aux;
 
-  if (fila_vazia(fila)) return 0;
+  if (filasimpenc_vazia(fila)) return 0;
   *e = fila->ini->info;
   aux = fila->ini;  
 
@@ -72,32 +72,34 @@ int remove_fila (fila *fila, oitem *e){
 }        
 
 
-fila *destroi_fila(fila *fila){
+filasimpenc *destroi_filasimpenc(filasimpenc *fila){
 	no *atu = fila->ini;
 	oitem e;
     
-	while(atu!=NULL){
-        remove_fila(fila, &e);
+	while(atu != NULL){
+        remove_filasimpenc(fila, &e);
         atu = atu->prox;
     }
 
-    fila->ini=fila->fim = NULL;
+  fila->ini = fila->fim = NULL;
+  
+  fila->tam = 0;
 
 	free(fila);	 
 	return NULL;       
 }
 
-void imprime_fila(fila *fila){
-    fila *fila_aux;
+void imprime_filasimpenc(filasimpenc *fila){
+    filasimpenc *fila_aux;
     oitem e;
 
-	fila_aux=inicializa_fila();
+	fila_aux = inicializa_filasimpenc();
      
-	while(!fila_vazia(fila)){
-        remove_fila(fila,&e);
+	while(!filasimpenc_vazia(fila)){
+    remove_filasimpenc(fila,&e);
 		printf("%d ", e);
-        insere_fila(fila_aux, e);           
-    }
+    insere_filasimpenc(fila_aux, e);           
+  }
 
     fila->ini = fila_aux->ini; 
     fila->fim = fila_aux->fim; 
@@ -105,7 +107,7 @@ void imprime_fila(fila *fila){
     fila_aux->ini = NULL;
     fila_aux->fim = NULL;
 
-    fila_aux = destroi_fila(fila_aux);
+    fila_aux = destroi_filasimpenc(fila_aux);
     printf("\n");
 
 }

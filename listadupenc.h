@@ -26,15 +26,14 @@ listadupenc *inicializa_listadupenc(){
 }  
 
 
-int listad_vazia(listadupenc *lista) {
-	if ( (lista->ini == NULL) ) 
-		return 1;
+int listadupenc_vazia(listadupenc *lista) {
+	if (lista->ini == NULL) return 1;
 	return 0;	
 }
 
 no *aloca() {
 	no* pt;
-	pt=(no*) malloc(sizeof(no));
+	pt = (no*) malloc(sizeof(no));
 	return pt;
 }
 

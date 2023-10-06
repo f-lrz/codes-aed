@@ -13,27 +13,27 @@ typedef struct no_aux{
 
 typedef struct{   
   no *topo;   
-} pilha;
+} pilhasimpenc;
 
 
-pilha *inicializa_pilha (){
-  pilha *pilha = (pilha*) malloc(sizeof(pilha));   
+pilhasimpenc* inicializa_pilha (){
+  pilhasimpenc *pilha = (pilhasimpenc*) malloc(sizeof(pilhasimpenc));   
   pilha->topo = NULL;   
   return pilha;
 }  
 
-int pilha_vazia (pilha *pilha){   
+int pilhasimpenc_vazia(pilhasimpenc *pilha){   
   if(pilha->topo == NULL) return 1;
   return 0;
 }
 
-no *aloca(){
-  no* pt;
-	pt = (no*) malloc(sizeof(no));
-	return pt;
+no* aloca(){
+  no* endmemno;
+	endmemno = (no*) malloc(sizeof(no));
+	return endmemno;
 }
 
-int push (pilha *pilha, oitem e){   
+int push (pilhasimpenc *pilha, oitem e){   
   no *novo_no;   
 
   novo_no = aloca();
@@ -42,7 +42,7 @@ int push (pilha *pilha, oitem e){
 
   novo_no->info = e;  
 
-  if(pilha_vazia(pilha)) novo_no->prox = NULL;
+  if(pilhasimpenc_vazia(pilha)) novo_no->prox = NULL;
 
   else novo_no->prox = pilha->topo;  
 
@@ -52,10 +52,10 @@ int push (pilha *pilha, oitem e){
 }        
 
 
-int pop (pilha *pilha, oitem *e){   
+int pop (pilhasimpenc *pilha, oitem *e){   
   no *aux;
 
-  if (pilha_vazia(pilha)) return 0;
+  if (pilhasimpenc_vazia(pilha)) return 0;
   
   *e = pilha->topo->info;
   
@@ -70,10 +70,10 @@ int pop (pilha *pilha, oitem *e){
   return 1;   
 }        
 
-int top (pilha *pilha, oitem *e){   
+int top (pilhasimpenc *pilha, oitem *e){   
   no *aux;
 
-  if (pilha_vazia(pilha)) return 0;
+  if (pilhasimpenc_vazia(pilha)) return 0;
 
   *e = pilha->topo->info;
   
@@ -82,7 +82,7 @@ int top (pilha *pilha, oitem *e){
 
 
 
-pilha *destroi_pilha(pilha *pilha){    
+pilhasimpenc *destroi_pilhasimpenc(pilhasimpenc *pilha){    
 	no *atu = pilha->topo, *aux;
   oitem e;
 
@@ -99,24 +99,24 @@ pilha *destroi_pilha(pilha *pilha){
 
 
 
-void imprime_pilha(pilha *pilha){
-  pilha *pilha_aux;
+void imprime_pilhasimpenc(pilhasimpenc *pilha){
+  pilhasimpenc *pilha_aux;
   oitem e;
      
-  pilha_aux=inicializa_pilha();
+  pilha_aux = inicializa_pilhasimpenc();
      
-	while (!pilha_vazia(pilha)){
+	while (!pilhasimpenc_vazia(pilha)){
     pop(pilha,&e);
     printf("%d ", e);
     push(pilha_aux, e);           
   }
 	
-	while (!pilha_vazia(pilha_aux)){
+	while (!pilhasimpenc_vazia(pilha_aux)){
     pop(pilha_aux,&e);
     push(pilha, e);           
   }
   
-  pilha_aux = destroi_pilha(pilha_aux);
+  pilha_aux = destroi_pilhasimpenc(pilha_aux);
 
 }
 
