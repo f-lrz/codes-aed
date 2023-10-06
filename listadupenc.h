@@ -38,22 +38,22 @@ no *aloca() {
 }
 
 int insere_listadupenc_no_fim (listadupenc *lista, oitem e){   
-    no *novo;   
-    novo = aloca();
-    if (!novo) return 0;
-    novo->info = e;  
+    no *novono;   
+    novono = aloca();
+    if (!novono) return 0;
+    novono->info = e;  
 
     if (listadupenc_vazia(lista)){
-        novo->prox = NULL;   
-        novo->antatual = NULL; 
-        lista->ini = lista->fim = novo;
+        novono->prox = NULL;   
+        novono->antatual = NULL; 
+        lista->ini = lista->fim = novono;
     }  
 
     else{
-        novo->prox = NULL;   
-        novo->antatual = lista->fim; 
-        lista->fim->prox = novo;
-        lista->fim = novo;
+        novono->prox = NULL;   
+        novono->antatual = lista->fim; 
+        lista->fim->prox = novono;
+        lista->fim = novono;
     }  
     
     lista->tam++; 

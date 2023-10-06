@@ -8,7 +8,7 @@ typedef int oitem;
 typedef struct noaux{   
   oitem info;   
   struct noaux *prox;   
-}no; 
+} no; 
 
 
 typedef struct{   
