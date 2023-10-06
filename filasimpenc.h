@@ -5,9 +5,9 @@
 
 typedef int oitem; 
 
-typedef struct no{   
+typedef struct noaux{   
   oitem info;   
-  struct no *prox;   
+  struct noaux *prox;   
 } no; 
 
 
@@ -24,7 +24,7 @@ filasimpenc *inicializa_filasimpenc (){
   return fila;
 }  
 
-no *aloca(){
+no *aloca_filasimpenc(){
 	no* pt;
 	pt = (no*) malloc(sizeof(no));
 	return pt;
@@ -37,7 +37,7 @@ int filasimpenc_vazia (filasimpenc *fila){
 
 int insere_filasimpenc (filasimpenc *fila, oitem e){   
   no *novo;   
-  novo = aloca();
+  novo = aloca_filasimpenc();
   if (!novo) return 0;
 
   novo->info = e;  

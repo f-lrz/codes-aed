@@ -5,10 +5,10 @@
 
 typedef int oitem; 
 
-typedef struct no_aux{   
+typedef struct noaux{   
   oitem info;   
-  struct no_aux *prox;   
-} no; 
+  struct noaux *prox;   
+}no; 
 
 
 typedef struct{   
@@ -16,7 +16,7 @@ typedef struct{
 } pilhasimpenc;
 
 
-pilhasimpenc* inicializa_pilha (){
+pilhasimpenc* inicializa_pilhasimpenc(){
   pilhasimpenc *pilha = (pilhasimpenc*) malloc(sizeof(pilhasimpenc));   
   pilha->topo = NULL;   
   return pilha;
@@ -27,16 +27,16 @@ int pilhasimpenc_vazia(pilhasimpenc *pilha){
   return 0;
 }
 
-no* aloca(){
+no* aloca_pilhasimpenc(){
   no* endmemno;
 	endmemno = (no*) malloc(sizeof(no));
 	return endmemno;
 }
 
-int push (pilhasimpenc *pilha, oitem e){   
+int push_pilhasimpenc(pilhasimpenc *pilha, oitem e){   
   no *novo_no;   
 
-  novo_no = aloca();
+  novo_no = aloca_pilhasimpenc();
 
   if(!novo_no) return 0;
 
@@ -52,7 +52,7 @@ int push (pilhasimpenc *pilha, oitem e){
 }        
 
 
-int pop (pilhasimpenc *pilha, oitem *e){   
+int pop_pilhasimpenc(pilhasimpenc *pilha, oitem *e){   
   no *aux;
 
   if (pilhasimpenc_vazia(pilha)) return 0;
@@ -70,7 +70,7 @@ int pop (pilhasimpenc *pilha, oitem *e){
   return 1;   
 }        
 
-int top (pilhasimpenc *pilha, oitem *e){   
+int top_pilhasimpenc(pilhasimpenc *pilha, oitem *e){   
   no *aux;
 
   if (pilhasimpenc_vazia(pilha)) return 0;
@@ -88,7 +88,7 @@ pilhasimpenc *destroi_pilhasimpenc(pilhasimpenc *pilha){
 
 	while (atu != NULL){
 	  aux = atu->prox;
-    pop(pilha, &e);  
+    pop_pilhasimpenc(pilha, &e);  
 		atu = aux; 
   }
 
@@ -106,14 +106,14 @@ void imprime_pilhasimpenc(pilhasimpenc *pilha){
   pilha_aux = inicializa_pilhasimpenc();
      
 	while (!pilhasimpenc_vazia(pilha)){
-    pop(pilha,&e);
+    pop_pilhasimpenc(pilha,&e);
     printf("%d ", e);
-    push(pilha_aux, e);           
+    push_pilhasimpenc(pilha_aux, e);           
   }
 	
 	while (!pilhasimpenc_vazia(pilha_aux)){
-    pop(pilha_aux,&e);
-    push(pilha, e);           
+    pop_pilhasimpenc(pilha_aux,&e);
+    push_pilhasimpenc(pilha, e);           
   }
   
   pilha_aux = destroi_pilhasimpenc(pilha_aux);
