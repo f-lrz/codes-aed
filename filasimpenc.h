@@ -2,6 +2,7 @@
 #define FILASIMPENC
 #include <stdio.h>
 #include <stdlib.h>
+#include "pilhasimpenc.h"
 
 typedef int oitem; 
 

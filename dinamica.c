@@ -1,32 +1,47 @@
-#include "listasimpenc.h"
-#include "listadupenc.h"
 #include "pilhasimpenc.h"
 #include "filasimpenc.h"
+#include "listadupenc.h"
+
+#include "pilhasimpencsoussa.h"
+#include "filasimpencsoussa.h"
+#include "listadupencsoussa.h"
+
+int josephus(){
+
+
+
+}
 
 int main(){
 
-    pilhasimpenc *pse;
-    filasimpenc *fse;
-    listadupenc *lde;
-    
-    push_pilhasimpenc(pse, 1);
-    push_pilhasimpenc(pse, 2);
-    push_pilhasimpenc(pse, 3);
-    imprime_pilhasimpenc(pse);
+    tp_pilhasimpencsoussa *pse;
+    tp_filasimpencsoussa *fse;
+    tp_listadupencsoussa *lde;
+
+    pse = inicializa_pilhasimpencsoussa();
+    fse = inicializa_filasimpencsoussa();
+    lde = inicializa_listadupencsoussa();
+
+   
+
+    push_pilhasimpencsoussa(pse, 1);
+    push_pilhasimpencsoussa(pse, 2);
+    push_pilhasimpencsoussa(pse, 3);
+    imprime_pilhasimpencsoussa(pse);
     printf("\n");
     printf("\n");
 
-    insere_filasimpenc(fse, 10);
-    insere_filasimpenc(fse, 20);
-    insere_filasimpenc(fse, 30);
-    imprime_filasimpenc(fse);
+    insere_filasimpencsoussa(fse, 10);
+    insere_filasimpencsoussa(fse, 20);
+    insere_filasimpencsoussa(fse, 30);
+    imprime_filasimpencsoussa(fse);
     printf("\n");
     printf("\n");
 
-    insere_listadupenc_no_fim(lde, 100);
-    insere_listadupenc_no_fim(lde, 200);
-    insere_listadupenc_no_fim(lde, 300);
-    imprime_listadupenc(lde, 1);
+    insere_listadupenc_no_fimsoussa(lde, 100);
+    insere_listadupenc_no_fimsoussa(lde, 200);
+    insere_listadupenc_no_fimsoussa(lde, 300);
+    imprime_listadupencsoussa(lde, 1);
     printf("\n");
     printf("\n");
 

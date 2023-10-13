@@ -9,11 +9,11 @@ typedef struct no_aux {
     struct no_aux *antatual;  
     oitem info;  
     struct no_aux *prox;   
-} no; 
+} noh; 
 
 typedef struct {   
-    no *ini;   
-    no *fim;   
+    noh *ini;   
+    noh *fim;   
     int tam;   
 } listadupenc;
 
@@ -31,15 +31,15 @@ int listadupenc_vazia(listadupenc *lista) {
 	return 0;	
 }
 
-no *aloca() {
-	no* pt;
-	pt = (no*) malloc(sizeof(no));
+noh *aloca_listadupenc() {
+	noh* pt;
+	pt = (noh*) malloc(sizeof(noh));
 	return pt;
 }
 
 int insere_listadupenc_no_fim (listadupenc *lista, oitem e){   
-    no *novono;   
-    novono = aloca();
+    noh *novono;   
+    novono = aloca_listadupenc();
     if (!novono) return 0;
     novono->info = e;  
 
@@ -66,7 +66,7 @@ void imprime_listadupenc(listadupenc *lista, int ordem){
 	if(lista==NULL) printf("Lista não inicializada");
 	else{
 
-        no *atual; 
+        noh *atual; 
 
         switch (ordem){
             case 1: 
@@ -94,7 +94,7 @@ void imprime_listadupenc(listadupenc *lista, int ordem){
 
 int remove_listadupenc(listadupenc *lista, oitem e){   
 
-    no *atual;
+    noh *atual;
     atual = lista->ini;
 
     while ((atual != NULL) && (atual->info != e)) atual = atual->prox;
@@ -126,8 +126,8 @@ int remove_listadupenc(listadupenc *lista, oitem e){
   return 1;   
 }        
 
-no* busca_listadupenc (listadupenc *lista, oitem e){   
-    no *atual;
+noh* busca_listadupenc (listadupenc *lista, oitem e){   
+    noh *atual;
     atual = lista->ini;
     while ((atual != NULL) && (atual->info != e)) atual = atual->prox;
     return atual;
@@ -138,7 +138,7 @@ int tamanho_listadupenc(listadupenc *lista){
 }
 
 listadupenc * destroi_listadupenc (listadupenc *lista){   
-    no *atual;
+    noh *atual;
     atual = lista->ini;
     while (atual != NULL){ 
         lista->ini = atual->prox;
