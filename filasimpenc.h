@@ -1,19 +1,20 @@
-#ifndef FILASIMPENC
-#define FILASIMPENC
+#ifndef FILASIMPENC_H
+#define FILASIMPENC_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "pilhasimpenc.h"
 
 typedef int oitem; 
 
-typedef struct noaux{   
+typedef struct no_aux{   
   oitem info;   
-  struct noaux *prox;   
-} no; 
+  struct no_aux *prox;   
+} noh; 
 
 
 typedef struct{   
-  no *ini, *fim; 
+  noh *ini, *fim; 
   int tam;  
 } filasimpenc;
 
@@ -25,9 +26,9 @@ filasimpenc *inicializa_filasimpenc (){
   return fila;
 }  
 
-no *aloca_filasimpenc(){
-	no* pt;
-	pt = (no*) malloc(sizeof(no));
+noh *aloca_filasimpenc(){
+	noh* pt;
+	pt = (noh*) malloc(sizeof(noh));
 	return pt;
 }
 
@@ -37,7 +38,7 @@ int filasimpenc_vazia (filasimpenc *fila){
 }
 
 int insere_filasimpenc (filasimpenc *fila, oitem e){   
-  no *novo;   
+  noh *novo;   
   novo = aloca_filasimpenc();
   if (!novo) return 0;
 
@@ -55,7 +56,7 @@ int insere_filasimpenc (filasimpenc *fila, oitem e){
 }        
 
 int remove_filasimpenc (filasimpenc *fila, oitem *e){   
-  no *aux;
+  noh *aux;
 
   if (filasimpenc_vazia(fila)) return 0;
   *e = fila->ini->info;
@@ -74,7 +75,7 @@ int remove_filasimpenc (filasimpenc *fila, oitem *e){
 
 
 filasimpenc *destroi_filasimpenc(filasimpenc *fila){
-	no *atu = fila->ini;
+	noh *atu = fila->ini;
 	oitem e;
     
 	while(atu != NULL){

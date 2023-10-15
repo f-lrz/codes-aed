@@ -2,50 +2,69 @@
 #include "filasimpenc.h"
 #include "listadupenc.h"
 
-#include "pilhasimpencsoussa.h"
+/*#include "pilhasimpencsoussa.h"
 #include "filasimpencsoussa.h"
-#include "listadupencsoussa.h"
+#include "listadupencsoussa.h"*/
 
-int josephus(){
-
-
-
-}
 
 int main(){
 
-    tp_pilhasimpencsoussa *pse;
-    tp_filasimpencsoussa *fse;
-    tp_listadupencsoussa *lde;
+    /*tp_pilhasimpencsoussa *pses;
+    tp_filasimpencsoussa *fses;
+    tp_listadupencsoussa *ldes;*/
 
-    pse = inicializa_pilhasimpencsoussa();
-    fse = inicializa_filasimpencsoussa();
-    lde = inicializa_listadupencsoussa();
+    pilhasimpenc *pse;
+    filasimpenc *fse;
+    listadupenc *lde;
 
-   
+    /*pses = inicializa_pilhasimpencsoussa();
+    fses = inicializa_filasimpencsoussa();
+    ldes = inicializa_listadupencsoussa();*/
 
-    push_pilhasimpencsoussa(pse, 1);
-    push_pilhasimpencsoussa(pse, 2);
-    push_pilhasimpencsoussa(pse, 3);
-    imprime_pilhasimpencsoussa(pse);
+    pse = inicializa_pilhasimpenc();
+    fse = inicializa_filasimpenc();
+    lde = inicializa_listadupenc();
+
+    /*push_pilhasimpencsoussa(pses, 1);
+    push_pilhasimpencsoussa(pses, 2);
+    push_pilhasimpencsoussa(pses, 3);
+    imprime_pilhasimpencsoussa(pses);*/
+
+    printf("\n");
+
+    push_pilhasimpenc(pse, 1);
+    push_pilhasimpenc(pse, 2);
+    push_pilhasimpenc(pse, 3);
+    imprime_pilhasimpenc(pse);
+
     printf("\n");
     printf("\n");
 
-    insere_filasimpencsoussa(fse, 10);
-    insere_filasimpencsoussa(fse, 20);
-    insere_filasimpencsoussa(fse, 30);
-    imprime_filasimpencsoussa(fse);
+    /*insere_filasimpencsoussa(fses, 10);
+    insere_filasimpencsoussa(fses, 20);
+    insere_filasimpencsoussa(fses, 30);
+    imprime_filasimpencsoussa(fses);*/
+
+    insere_filasimpenc(fse, 10);
+    insere_filasimpenc(fse, 20);
+    insere_filasimpenc(fse, 30);
+    imprime_filasimpenc(fse);
+
     printf("\n");
     printf("\n");
 
-    insere_listadupenc_no_fimsoussa(lde, 100);
-    insere_listadupenc_no_fimsoussa(lde, 200);
-    insere_listadupenc_no_fimsoussa(lde, 300);
-    imprime_listadupencsoussa(lde, 1);
+    /*insere_listadupencsoussa_no_fim(ldes, 100);
+    insere_listadupencsoussa_no_fim(ldes, 200);
+    insere_listadupencsoussa_no_fim(ldes, 300);
+    imprime_listadupencsoussa(ldes, 1);*/
+
+    insere_listadupenc_no_fim(lde, 11);
+    insere_listadupenc_no_fim(lde, 22);
+    insere_listadupenc_no_fim(lde, 33);
+    imprime_listadupenc(lde, 2);
+
     printf("\n");
     printf("\n");
-
-
     
     return 0;
 }

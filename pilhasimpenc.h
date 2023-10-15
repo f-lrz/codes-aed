@@ -1,5 +1,6 @@
-#ifndef PILHASIMPENC
-#define PILHASIMPENC
+#ifndef PILHASIMPENC_H
+#define PILHASIMPENC_H
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -71,7 +72,6 @@ int pop_pilhasimpenc(pilhasimpenc *pilha, oitem *e){
 }        
 
 int top_pilhasimpenc(pilhasimpenc *pilha, oitem *e){   
-  no *aux;
 
   if (pilhasimpenc_vazia(pilha)) return 0;
 

@@ -1,19 +1,20 @@
-#ifndef LISTADUPENC
-#define LISTADUPENC
+#ifndef LISTADUPENC_H
+#define LISTADUPENC_H
+
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef int oitem; 
 
-typedef struct no_aux {   
-    struct no_aux *antatual;  
+typedef struct tpno_aux {   
+    struct tpno_aux *antatual;  
     oitem info;  
-    struct no_aux *prox;   
-} noh; 
+    struct tpno_aux *prox;   
+} nohh; 
 
 typedef struct {   
-    noh *ini;   
-    noh *fim;   
+    nohh *ini;   
+    nohh *fim;   
     int tam;   
 } listadupenc;
 
@@ -31,14 +32,14 @@ int listadupenc_vazia(listadupenc *lista) {
 	return 0;	
 }
 
-noh *aloca_listadupenc() {
-	noh* pt;
-	pt = (noh*) malloc(sizeof(noh));
+nohh *aloca_listadupenc() {
+	nohh* pt;
+	pt = (nohh*) malloc(sizeof(nohh));
 	return pt;
 }
 
 int insere_listadupenc_no_fim (listadupenc *lista, oitem e){   
-    noh *novono;   
+    nohh *novono;   
     novono = aloca_listadupenc();
     if (!novono) return 0;
     novono->info = e;  
@@ -66,7 +67,7 @@ void imprime_listadupenc(listadupenc *lista, int ordem){
 	if(lista==NULL) printf("Lista não inicializada");
 	else{
 
-        noh *atual; 
+        nohh *atual; 
 
         switch (ordem){
             case 1: 
@@ -94,7 +95,7 @@ void imprime_listadupenc(listadupenc *lista, int ordem){
 
 int remove_listadupenc(listadupenc *lista, oitem e){   
 
-    noh *atual;
+    nohh *atual;
     atual = lista->ini;
 
     while ((atual != NULL) && (atual->info != e)) atual = atual->prox;
@@ -126,8 +127,8 @@ int remove_listadupenc(listadupenc *lista, oitem e){
   return 1;   
 }        
 
-noh* busca_listadupenc (listadupenc *lista, oitem e){   
-    noh *atual;
+nohh* busca_listadupenc (listadupenc *lista, oitem e){   
+    nohh *atual;
     atual = lista->ini;
     while ((atual != NULL) && (atual->info != e)) atual = atual->prox;
     return atual;
@@ -138,7 +139,7 @@ int tamanho_listadupenc(listadupenc *lista){
 }
 
 listadupenc * destroi_listadupenc (listadupenc *lista){   
-    noh *atual;
+    nohh *atual;
     atual = lista->ini;
     while (atual != NULL){ 
         lista->ini = atual->prox;

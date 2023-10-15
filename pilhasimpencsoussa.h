@@ -1,3 +1,6 @@
+#ifndef PILHADUPENCSOUSSA_H
+#define PILHADUPENCSOUSSA_H
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -60,8 +63,7 @@ int pop_pilhasimpencsoussa (tp_pilhasimpencsoussa *pilha, tp_item *e){
   return 1;   
 }        
 
-int top_pilhasimpencsoussa (tp_pilhasimpencsoussa *pilha, tp_item *e){   
-  tp_no *aux;
+int top_pilhasimpencsoussa (tp_pilhasimpencsoussa *pilha, tp_item *e){
 
   if (pilhasimpencsoussa_vazia(pilha)) return 0;
   *e=pilha->topo->info;
@@ -108,5 +110,5 @@ void imprime_pilhasimpencsoussa(tp_pilhasimpencsoussa *pilha) {
 
 }
 
-
+#endif
 

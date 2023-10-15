@@ -1,12 +1,15 @@
+#ifndef FILASIMPENCSOUSSA_H
+#define FILASIMPENCSOUSSA_H
+
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef int tp_item; 
 
-typedef struct tp_no_aux {   
+typedef struct no_aux {   
   tp_item info;   
-  struct tp_no_aux *prox;   
-} tp_no; 
+  struct no_aux *prox;   
+} no; 
 
 
 typedef struct {   
@@ -101,4 +104,4 @@ void imprime_filasimpencsoussa(tp_filasimpencsoussa *fila) {
 
 }
 
-
+#endif
