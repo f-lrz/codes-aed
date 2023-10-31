@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef int oitem; 
+typedef char oitem; 
 
 typedef struct tpno_aux {   
     struct tpno_aux *antatual;  
@@ -73,7 +73,7 @@ void imprime_listadupenc(listadupenc *lista, int ordem){
             case 1: 
                 atual = lista->ini;
                 while (atual != NULL){
-                   printf("%d ", atual->info);
+                   printf("%c ", atual->info);
                    atual = atual->prox;           
                 }
                 break; 
@@ -81,7 +81,7 @@ void imprime_listadupenc(listadupenc *lista, int ordem){
             case 2: 
                 atual = lista->fim;
                 while (atual != NULL){
-                   printf("%d ", atual->info);
+                   printf("%c ", atual->info);
                    atual = atual->antatual;           
                    }
                 break; 
