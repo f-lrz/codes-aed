@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <time.h>
 
 typedef char oitem; 
 
@@ -35,6 +37,12 @@ int listadupenc_vazia(listadupenc *lista) {
 nohh *aloca_listadupenc() {
 	nohh* pt;
 	pt = (nohh*) malloc(sizeof(nohh));
+	return pt;
+}
+
+listadupenc *aloca_listadupenc_sem_ser_no() {
+	listadupenc* pt;
+	pt = (listadupenc*) malloc(sizeof(listadupenc));
 	return pt;
 }
 
@@ -123,8 +131,7 @@ int remove_listadupenc(listadupenc *lista, oitem e){
 
    free(atual);  
 
-  
-  return 1;   
+   return 1;   
 }        
 
 nohh* busca_listadupenc (listadupenc *lista, oitem e){   
