@@ -164,7 +164,7 @@ int jogo(listadupenc *lista){
 
     insere_listadupenc_no_fim(lista, player);
     insere_listadupenc_no_fim(lista,'b');
-    insere_listadupenc_no_fim(lista,'c');
+    insere_listadupenc_no_fim(lista,'1');
     insere_listadupenc_no_fim(lista,'0');
     insere_listadupenc_no_fim(lista,'e');
     insere_listadupenc_no_fim(lista,'f');
@@ -187,7 +187,7 @@ int jogo(listadupenc *lista){
         dado = (rand() % 6) + 1;
         
         
-        while((i <= dado) && (atu != NULL)){
+        while((i <= dado) && (atu->prox != NULL)){
         	atu = atu->prox;
         	i++;
 		}
