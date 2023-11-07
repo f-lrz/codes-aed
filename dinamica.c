@@ -187,7 +187,7 @@ int jogo(listadupenc *lista){
         dado = (rand() % 6) + 1;
         
         
-        while((i <= dado) && (atu != NULL)){
+        while((i <= dado) && (atu->prox != NULL)){
         	atu = atu->prox;
         	i++;
 		}
