@@ -1,18 +1,16 @@
 #ifndef ARVOREBB_H
-#define ARVORE_BB
+#define ARVOREBB_H
 
 #include <stdio.h>
 #include <stdlib.h>
 
 
-
 typedef int oitem;
 
-
 typedef struct no{
-    struct no *esq;
-    oitem info;
     struct no *dir;
+    oitem info;
+    struct no *esq;
 } no;
 
 typedef no *arvore;
@@ -42,9 +40,9 @@ int insere_no(arvore *raiz, oitem e){
     novo = aloca_no();
     if(!novo) return 0;
 
+    novo->dir = NULL;
     novo->info = e;
     novo->esq = NULL;
-    novo->dir = NULL;
 
     while(atu != NULL){
         pai = atu;
@@ -111,11 +109,29 @@ arvore busca_no_com_recur(arvore atu, oitem e){
 }
 
 int qnt_niveis(arvore raiz){
+    if(raiz == NULL) return 0;
+
+    int nivel_esq;
+    int nivel_dir;
+
+    nivel_esq = qnt_niveis(raiz->esq);
+    nivel_dir = qnt_niveis(raiz->dir);
+
+    if(nivel_esq > nivel_dir) return nivel_esq + 1;
+    else return nivel_dir + 1;
 
 }
 
 int qnt_nos(arvore raiz){
-    
+    if(raiz == NULL) return 0;
+
+    int total_esq;
+    int total_dir;
+
+    total_esq = qnt_nos(raiz->esq);
+    total_dir = qnt_nos(raiz->dir);
+
+    return total_esq + total_dir + 1;
 }
 
 #endif
