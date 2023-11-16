@@ -134,4 +134,77 @@ int qnt_nos(arvore raiz){
     return total_esq + total_dir + 1;
 }
 
+
+int remove_no(arvore *raiz, oitem e ) {
+	no *p = *raiz;
+    no *ant = NULL;
+    no *sub;
+    no *pai;
+    no *filho;
+
+	while((p != NULL) && (p->info != e)){
+		ant = p;
+
+		if (e < p->info) p = p->esq;
+
+		else p = p->dir;
+	}
+
+	if(p == NULL) return 0;
+
+	if(p->esq == NULL) sub = p->dir;
+	
+    else{
+		if (p->dir == NULL) sub = p->esq;
+
+		else{
+	        pai = p; 
+            sub = p->dir; 
+            filho = sub->esq;
+
+			while(filho != NULL){
+				pai = sub;  
+                sub = filho;  
+                filho = sub->esq;
+			}
+
+			if(pai != p){
+				pai->esq = sub->dir;
+				sub->dir = p->dir;
+			}
+
+			sub->esq = p->esq;
+		}
+
+		if(ant == NULL) *raiz = sub;
+
+		else{
+			if (p == ant->esq) ant->esq = sub;
+            else ant->dir = sub;
+        }
+
+		free(p);
+    }
+	return 1;
+}
+
+
+void destroi_no(no *noh){
+   if(noh == NULL) return;
+   destroi_no(noh->esq);
+   destroi_no(noh->dir);
+ //  printf("\n %d ", no->info);
+   free(noh);
+   noh = NULL;
+   return;
+}
+
+void destroi_arvore(arvore *raiz){
+   if(*raiz == NULL) return;
+   destroi_no(*raiz);
+  // free(*raiz);
+   *raiz = NULL;
+}
+
+
 #endif
