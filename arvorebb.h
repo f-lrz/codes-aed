@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "fila.h"
 
 
 typedef int oitem;
