@@ -3,7 +3,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "fila.h"
 
 
 typedef int oitem;
@@ -83,6 +82,16 @@ void pos_ordem(no *atu){
         pos_ordem(atu->esq);
         pos_ordem(atu->dir);
         printf("\n%d", atu->info);
+    }
+}
+
+int qnt_niveis(arvore raiz);
+
+void inv_ordem(no *atu){
+    if(atu != NULL){
+        inv_ordem(atu->dir);
+        inv_ordem(atu->esq);
+        printf("\nNivel %d: %d", qnt_niveis(atu) - 1, atu->info);
     }
 }
 
